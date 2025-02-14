@@ -7,50 +7,53 @@
     <link rel="icon" type="image/png" href="image/favicon.png">
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <!-- Header -->
     <header>
         <img src="image/logo.png" alt="Logo StrideMC">
+        <div id="player-count">
+            <p>♾️</p>
+        </div>
         <nav>
-            <a href="index.html">sᴛʀᴏɴᴀ ɢᴌᴏ́ᴡɴᴀ</a>
-            <a href="sklep.html">sᴋʟᴇᴘ</a>
-            <a href="regulamin.html">ʀᴇɢᴜʟᴀᴍɪɴ</a>
+            <a href="index.html">Strona Główna</a>
+            <a href="sklep.html">Sklep</a>
+            <a href="regulamin.html">Regulamin</a>
         </nav>
     </header>
 
     <!-- Sekcja główna -->
     <section class="main-section">
         <h1>StrideMC.pl</h1>
-        <!-- Licznik graczy online -->
-        <div id="player-count">
-            <p>Ładowanie liczby graczy...</p>
-        </div>
         <div class="button-container">
-            <button onclick="window.location.href='https://discord.gg/qApDx7vj3N'"><i class="fa-brands fa-discord"></i> ᴅɪsᴄᴏʀᴅ</button>
-            <button id="copy-ip-button" onclick="copyIP()"><i class="fa-solid fa-copy"></i> ᴋᴏᴘɪᴜᴊ ɪᴘ</button>
+            <button onclick="window.location.href='https://discord.gg/qApDx7vj3N'"><i class="fa-brands fa-discord"></i> discord</button>
+            <button id="copy-ip-button" onclick="copyIP()"><i class="fa-solid fa-copy"></i> kopiuj ip</button>
         </div>
     </section>
 
     <!-- Sekcja z kolumnami -->
     <section class="columns">
         <div>
-            <h2>ᴏ ɴᴀs</h2>
+            <h2>O NAS</h2>
             <p>StrideMC to serwer tworzony od podstaw przez graczy, dla graczy. Obecnie nasz team skupia się nad trybem survival z nutą innowacyjności, którą zapewnić możemy poprzez pluginy napisane specjalnie pod nasz serwer.</p>
         </div>
         <div>
-            <h2>ᴏ sᴇʀᴡᴇʀᴢᴇ</h2>
+            <h2>O SERWERZE</h2>
             <p>NetherMc to serwer oparty na wielu latach doświadczenia jako gracz jak i twórca. Jesteśmy otwarci na propozycje naszych graczy, gdyż wiemy że dobry serwer to nie tylko ten, który posiada ciekawe rozwiązania, ale także ten, gdzie community jest zawsze na pierwszym miejscu.</p>
         </div>
         <div>
-            <h2>ᴇᴋᴘʟᴏʀᴀᴄᴊᴀ</h2>
+            <h2>EKSPLORACJA</h2>
             <p>Nasza mapa różni się od standardowej, możemy znaleźć na niej wyjątkowe biomy oraz zupełnie nowe struktury. Wioski nie przypominają już tych samych, a my cieszymy się pięknymi widokami podczas dalekich podróży.</p>
         </div>
     </section>
 
     <!-- Sekcja administracji -->
     <section class="administration">
-        <h2>ᴀᴅᴍɪɴɪsᴛʀᴀᴄᴊᴀ</h2>
+        <h2>ADMINISTRACJA</h2>
         <div class="admin-container">
             <div>
                 <img src="image/maqio-skin.png" alt="Skin Maqio">
@@ -72,44 +75,44 @@
 
     <!-- Sekcja social media -->
     <section class="social-media">
-        <h2>ɴᴀsᴢᴇ sᴏᴄɪᴀʟ ᴍᴇᴅɪᴀ</h2>
+        <h2>SOCIAL MEDIA</h2>
         <div class="social-buttons">
             <button onclick="window.location.href='https://tiktok.com'">
-                <i class="fa-brands fa-tiktok"></i> ᴛɪᴋᴛᴏᴋ
+                <i class="fa-brands fa-tiktok"></i> tik tok
             </button>
             <button onclick="window.location.href='https://youtube.com'">
-                <i class="fa-brands fa-youtube"></i> ʏᴏᴜᴛᴜʙᴇ</button>
+                <i class="fa-brands fa-youtube"></i> youtube</button>
         </div>
     </section>
 
     <!-- Stopka -->
     <footer>
-        <p>Strona stworzona przez Maqio</p>
-        <p>StrideMC.pl &copy; 2025</p>
+        <p>Strona stworzona przez: Maqio & Paqlio</p>
+        <p>StrideMC.pl™️2025</p>
     </footer>
 
     <!-- Skrypt JavaScript -->
     <script>
         async function fetchPlayerCount() {
-            const apiUrl = "https://api.mc-api.net/v2/server/ping/stridemc.pl";
+            const apiUrl = "https://api.mcsrvstat.us/2/194.146.13.186";
+
             try {
                 const response = await fetch(apiUrl);
                 const data = await response.json();
+                const element = document.getElementById("player-count");
 
-                if (data.online) {
-                    const playerCount = data.players.online;
-                    document.getElementById("player-count").innerHTML = `<p>Graczy online: ${playerCount}</p>`;
-                } else {
-                    document.getElementById("player-count").innerHTML = "<p>Serwer offline</p>";
-                }
+                element.textContent = data.online
+                    ? `🟢 ${data.players.online} graczy`
+                    : "😴";
             } catch (error) {
-                document.getElementById("player-count").innerHTML = "<p>Błąd ładowania danych</p>";
+                console.error("Błąd pobierania danych:", error);
+                document.getElementById("player-count").textContent = "Błąd ładowania danych";
             }
         }
 
-        // Funkcja do kopiowania IP
+
         function copyIP() {
-            const text = "stridemc.pl";
+            const text = "join.stridemc.pl";
             navigator.clipboard.writeText(text).then(() => {
                 alert("IP skopiowane do schowka!");
             });
