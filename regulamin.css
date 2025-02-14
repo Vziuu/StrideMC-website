@@ -1,0 +1,92 @@
+/* Styl ogólny */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    line-height: 1.6;
+    background-image: url(image/tło-reg.png);
+    background-size: cover;
+    background-position: center;
+    background-attachment: local;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(9, 0, 15);
+    padding: 10px 20px;
+}
+
+header nav {
+    display: flex;
+    gap: 20px;
+}
+
+header nav a {
+    padding-right: 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+header nav a:hover {
+    color: #8b58b5; /* Fioletowy */
+}
+
+header img {
+    height: 60px;
+}
+
+/* Kontener główny */
+.container {
+    margin-top: 80px; /* Odstęp od nagłówka */
+    padding: 20px;
+    text-align: center; /* Wyśrodkowanie tekstu w kontenerze */
+}
+
+/* Nagłówek strony */
+.container h1 {
+    font-size: 4.5em;
+    color: #ffffff;
+    margin-bottom: 30px;
+    background: linear-gradient(15deg, #8a2be2, #d4aff8); /* Fioletowy do niebieskiego */
+    -webkit-background-clip: text; /* Stosujemy gradient do tekstu */
+    color: transparent; /* Ukrywamy normalny kolor tekstu */
+}
+
+/* Styl regulaminu */
+.regulamin {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #ffffff;
+    text-align: left;
+    display: inline-block;
+    text-align: center; /* Wyśrodkowanie tekstu w regulaminie */
+    max-width: 800px; /* Ograniczamy szerokość tekstu */
+    margin: 0 auto; /* Wyśrodkowanie elementu w poziomie */
+    
+}
+
+.regulamin h2 {
+    font-size: 1.8em;
+    color: #a868e3; /* Fioletowy */
+    margin-bottom: 10px;
+}
+
+.regulamin ol {
+    padding-left: 20px;
+    text-align: left; /* Ustawiamy wyrównanie tekstu w listach */
+}
+
+.regulamin li {
+    margin-bottom: 10px;
+}
+
+/* Możesz dodać inne style, które będą dotyczyć zawartości regulaminu */

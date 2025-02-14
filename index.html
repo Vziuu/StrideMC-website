@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StrideMC.pl</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Font Awesome -->
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="image/logo.png" alt="Logo StrideMC">
+        <nav>
+            <a href="index.html">sᴛʀᴏɴᴀ ɢᴌᴏ́ᴡɴᴀ</a>
+            <a href="sklep.html">sᴋʟᴇᴘ</a>
+            <a href="regulamin.html">ʀᴇɢᴜʟᴀᴍɪɴ</a>
+        </nav>
+    </header>
+
+    <!-- Sekcja główna -->
+    <section class="main-section">
+        <h1>StrideMC.pl</h1>
+        <!-- Licznik graczy online -->
+        <div id="player-count">
+            <p>Ładowanie liczby graczy...</p>
+        </div>
+        <div class="button-container">
+            <button onclick="window.location.href='https://discord.gg/qApDx7vj3N'"><i class="fa-brands fa-discord"></i> ᴅɪsᴄᴏʀᴅ</button>
+            <button id="copy-ip-button" onclick="copyIP()"><i class="fa-solid fa-copy"></i> ᴋᴏᴘɪᴜᴊ ɪᴘ</button>
+        </div>
+    </section>
+
+    <!-- Sekcja z kolumnami -->
+    <section class="columns">
+        <div>
+            <h2>ᴏ ɴᴀs</h2>
+            <p>StrideMC to serwer tworzony od podstaw przez graczy, dla graczy. Obecnie nasz team skupia się nad trybem survival z nutą innowacyjności, którą zapewnić możemy poprzez pluginy napisane specjalnie pod nasz serwer.</p>
+        </div>
+        <div>
+            <h2>ᴏ sᴇʀᴡᴇʀᴢᴇ</h2>
+            <p>NetherMc to serwer oparty na wielu latach doświadczenia jako gracz jak i twórca. Jesteśmy otwarci na propozycje naszych graczy, gdyż wiemy że dobry serwer to nie tylko ten, który posiada ciekawe rozwiązania, ale także ten, gdzie community jest zawsze na pierwszym miejscu.</p>
+        </div>
+        <div>
+            <h2>ᴇᴋᴘʟᴏʀᴀᴄᴊᴀ</h2>
+            <p>Nasza mapa różni się od standardowej, możemy znaleźć na niej wyjątkowe biomy oraz zupełnie nowe struktury. Wioski nie przypominają już tych samych, a my cieszymy się pięknymi widokami podczas dalekich podróży.</p>
+        </div>
+    </section>
+
+    <!-- Sekcja administracji -->
+    <section class="administration">
+        <h2>ᴀᴅᴍɪɴɪsᴛʀᴀᴄᴊᴀ</h2>
+        <div class="admin-container">
+            <div>
+                <img src="image/maqio-skin.png" alt="Skin Maqio">
+                <p>Maqio</p>
+                <p>Właściciel</p>
+            </div>
+            <div>
+                <img src="image/paqlio-skin.png" alt="Skin Paqlio">
+                <p>Paqlio</p>
+                <p>HeadAdmin</p>
+            </div>
+            <div>
+                <img src="image/xprozil-skin.png" alt="Skin Paqlio">
+                <p>Xprozil</p>
+                <p>Admin</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekcja social media -->
+    <section class="social-media">
+        <h2>ɴᴀsᴢᴇ sᴏᴄɪᴀʟ ᴍᴇᴅɪᴀ</h2>
+        <div class="social-buttons">
+            <button onclick="window.location.href='https://tiktok.com'">
+                <i class="fa-brands fa-tiktok"></i> ᴛɪᴋᴛᴏᴋ
+            </button>
+            <button onclick="window.location.href='https://youtube.com'">
+                <i class="fa-brands fa-youtube"></i> ʏᴏᴜᴛᴜʙᴇ</button>
+        </div>
+    </section>
+
+    <!-- Stopka -->
+    <footer>
+        <p>Strona stworzona przez Maqio</p>
+        <p>StrideMC.pl &copy; 2025</p>
+    </footer>
+
+    <!-- Skrypt JavaScript -->
+    <script>
+        // Funkcja do pobierania liczby graczy online
+        async function fetchPlayerCount() {
+            const apiUrl = "https://api.mcstatus.io/v2/status/java/stridemc.pl"; // Adres API
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+
+                if (data.online) {
+                    const playerCount = data.players.online;
+                    document.getElementById("player-count").innerHTML = `<p>Graczy online: ${playerCount}</p>`;
+                } else {
+                    document.getElementById("player-count").innerHTML = "<p>Serwer offline</p>";
+                }
+            } catch (error) {
+                console.error("Błąd podczas pobierania danych:", error);
+                document.getElementById("player-count").innerHTML = "<p>Błąd ładowania danych</p>";
+            }
+        }
+
+        // Funkcja do kopiowania IP
+        function copyIP() {
+            const text = "stridemc.pl";
+            navigator.clipboard.writeText(text).then(() => {
+                alert("IP skopiowane do schowka!");
+            });
+        }
+
+        // Wywołanie funkcji po załadowaniu strony i co 30 sekund
+        window.onload = () => {
+            fetchPlayerCount(); // Pierwsze wywołanie
+            setInterval(fetchPlayerCount, 30000); // Odświeżaj co 30 sekund
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+/* Styl ogólny */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    line-height: 1.6;
+    background-image: url(image/tło.png);
+    background-size: cover;
+    background-position: center;
+    background-attachment: local;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(2, 0, 5, 0.721);
+    padding: 10px 20px;
+}
+
+header nav {
+    display: flex;
+    gap: 20px;
+}
+
+header nav a {
+    padding-right: 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+header nav a:hover {
+    color: #8b58b5; /* Fioletowy */
+}
+
+header img {
+    height: 60px;
+}
+
+/* Sekcja główna */
+.main-section {
+    text-align: center;
+    padding: 100px 20px 450px; /* Jeszcze większa wysokość sekcji */
+    background-color: rgba(30, 30, 30, 0.0); /* Przezroczyste tło */
+}
+
+.main-section h1 {
+    font-size: 5em;
+    color: #ffffff; /* Fioletowy */
+    margin-right: 900px;
+    font-weight: bold;
+    margin-top: 100px; /* Przesunięcie napisu "Stride MC" o 300px w dół */
+
+}
+/* Gradient na tekst StrideMC.pl */
+.main-section h1 {
+    font-size: 5em;
+    font-weight: bold;
+    margin-right: 900px;
+    margin-top: 100px;
+    background: linear-gradient(45deg, #8a2be2, #d4aff8); /* Fioletowy do niebieskiego */
+    -webkit-background-clip: text; /* Stosujemy gradient do tekstu */
+    color: transparent; /* Ukrywamy normalny kolor tekstu */
+    text-shadow:0 0 5px #8a2be2
+}
+
+
+.main-section button {
+    background-color: #521e82; /* Fioletowy */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-right: 10px; /* Odstęp między przyciskami */
+    margin-top: 20px;
+}
+
+.main-section button:hover {
+    background-color: #7b1fa2; /* Ciemniejszy fiolet */
+}
+
+/* Kontener dla przycisków */
+.button-container {
+    display: flex;
+    gap: 10px; /* Odstęp między przyciskami */
+    margin-left: 390px; /* Przesunięcie o 600px w lewo, ponieważ wcześniej miały 900px */
+    margin-top: 20px;
+}
+
+/* Sekcja z kolumnami */
+.columns {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 20px;
+    background-color: rgba(14, 5, 27, 0.8);
+    border-top: 100px
+}
+
+.columns div {
+    flex: 1;
+    margin: 0 10px;
+    text-align: center;
+    max-width: 300px; /* Ograniczenie szerokości kolumn */
+    margin: 0 auto; /* Wyśrodkowanie kolumn */
+}
+
+.columns h2 {
+    font-size: 1.8em;
+    color: #8a2be2; /* Fioletowy */
+    margin-bottom: 10px;
+}
+
+.columns p {
+    font-size: 1.1em;
+}
+
+/* Sekcja administracji */
+.administration {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: rgba(14, 5, 27, 0.8);
+}
+
+.administration h2 {
+    font-size: 2em;
+    color: #8a2be2; /* Fioletowy */
+    margin-bottom: 20px;
+}
+
+.administration .admin-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.administration .admin-container div {
+    text-align: center;
+}
+
+.administration img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.administration p {
+    font-size: 1.1em;
+}
+
+/* Sekcja social media */
+.social-media {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: rgba(14, 5, 27, 0.8);
+}
+
+.social-media h2 {
+    font-size: 2em;
+    color: #8a2be2; /* Fioletowy */
+    margin-bottom: 20px;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-buttons button {
+    background-color: #8a2be2; /* Fioletowy */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.social-buttons button:hover {
+    background-color: #7b1fa2; /* Ciemniejszy fiolet */
+}
+
+/* Stopka */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(8, 2, 15, 1);
+    color: #ffffff;
+    font-size: 0.9em;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Styl dla licznika graczy */
+#player-count {
+    margin-bottom: 10px;
+    margin-right: 900px;
+    font-size: 1.2em;
+    color: #9564c3; /* Fioletowy */
+    font-weight: bold;
+}
