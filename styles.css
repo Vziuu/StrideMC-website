@@ -72,7 +72,7 @@ header img {
 }
 
 .main-section button {
-    background-color: #521e82;
+    background: linear-gradient(45deg, #8a2be2, #4a0c87);
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -84,7 +84,7 @@ header img {
 }
 
 .main-section button:hover {
-    background-color: #7b1fa2;
+    background: linear-gradient(45deg, #751679, #4c0371); /* Nowy gradient w hover */
 }
 
 /* Kontener dla przycisków */
@@ -178,7 +178,7 @@ header img {
 }
 
 .social-buttons button {
-    background-color: #8a2be2;
+    background: linear-gradient(45deg, #8a2be2, #4a0c87);
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -189,7 +189,7 @@ header img {
 }
 
 .social-buttons button:hover {
-    background-color: #7b1fa2;
+    background: linear-gradient(45deg, #751679, #4c0371); 
 }
 
 /* Stopka */
