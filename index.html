@@ -10,9 +10,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 </head>
 <body>
+    <script src="js/players.js"></script>
     <!-- Header -->
     <header>
         <img src="image/logo.png" alt="Logo StrideMC">
@@ -20,9 +22,10 @@
             <p>♾️</p>
         </div>
         <nav>
-            <a href="index.html">Strona Główna</a>
-            <a href="sklep.html">Sklep</a>
-            <a href="regulamin.html">Regulamin</a>
+            <a href="index.html"><i class="fas fa-home"></i> Strona Główna</a>
+            <a href="sklep.html"><i class="fas fa-shopping-cart"></i> Sklep</a>
+            <a href="https://vziuu.gitbook.io/stridemc.pl/lobby/start/rejestracja"><i class="fas fa-book"></i> Dokumentacja</a>
+            <a href="regulamin.html"><i class="fas fa-file-alt"></i> Regulamin</a>
         </nav>
     </header>
 
@@ -31,7 +34,7 @@
         <h1>StrideMC.pl</h1>
         <div class="button-container">
             <button onclick="window.location.href='https://discord.gg/qApDx7vj3N'"><i class="fa-brands fa-discord"></i> discord</button>
-            <button id="copy-ip-button" onclick="copyIP()"><i class="fa-solid fa-copy"></i> skopiuj adres</button>
+            <button id="copy-ip-button" onclick="copyIP()"><i class="fa-solid fa-copy"></i> skopiuj IP</button>
         </div>
     </section>
 
@@ -61,7 +64,7 @@
                 <p>Właściciel</p>
             </div>
             <div>
-                <img src="https://cravatar.eu/helmhead/OGJUliet/600.png" alt="Skin Paqlio">
+                <img src="image/paqlio-skin.png" alt="Skin Paqlio">
                 <p>Paqlio</p>
                 <p>HeadAdmin</p>
             </div>
@@ -87,42 +90,28 @@
 
     <!-- Stopka -->
     <footer>
-        <p>Strona stworzona przez: Maqio & Paqlio</p>
-        <p>StrideMC.pl™️2025</p>
+        <p>Strona stworzona przez: Vziuu</p>
+        <p>StrideMC.pl™️ @2025</p>
     </footer>
 
     <!-- Skrypt JavaScript -->
     <script>
-        async function fetchPlayerCount() {
-            const apiUrl = "https://api.mcsrvstat.us/2/194.146.13.186";
-
-            try {
-                const response = await fetch(apiUrl);
-                const data = await response.json();
-                const element = document.getElementById("player-count");
-
-                element.textContent = data.online
-                    ? `🟢 ${data.players.online} graczy`
-                    : "😴";
-            } catch (error) {
-                console.error("Błąd pobierania danych:", error);
-                document.getElementById("player-count").textContent = "Błąd ładowania danych";
-            }
-        }
 
 
         function copyIP() {
             const text = "join.stridemc.pl";
-            navigator.clipboard.writeText(text).then(() => {
-                alert("IP skopiowane do schowka!");
-            });
+            const alertElement = document.createElement("div");
+            alertElement.style = "position: fixed; top: 10px; left: 50%; transform: translateX(-50%); padding: 10px; background-color: #4CAF50; color: white; border-radius: 5px; z-index: 1000;";
+            alertElement.textContent = "Skopiowano adres serwera! 😁";
+            //append alert to body
+            document.body.appendChild(alertElement);
+            //copy IP to clipboard
+            navigator.clipboard.writeText(text);
+            //remove alert after 2 seconds
+            setTimeout(() => {
+                alertElement.remove();
+            }, 2000);
         }
-
-        // Wywołanie funkcji po załadowaniu strony i co 30 sekund
-        window.onload = () => {
-            fetchPlayerCount(); // Pierwsze wywołanie
-            setInterval(fetchPlayerCount, 30000); // Odświeżaj co 30 sekund
-        };
     </script>
 </body>
 </html>
